@@ -6,9 +6,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: Deploy
         run: |
           chmod +x ${{ github.workspace }}/deploy.sh
