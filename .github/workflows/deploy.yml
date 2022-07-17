@@ -10,4 +10,6 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - name: Deploy
-        run: ${{ github.workspace }}/deploy.sh
+        run: |
+          chmod +x ${{ github.workspace }}/deploy.sh
+          ${{ github.workspace }}/deploy.sh
