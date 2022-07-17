@@ -1,16 +1,16 @@
-image: node:16.13.1
+image: node:16.5.0
 pages:
   stage: deploy
   cache:
     key:
       files:
-        - pnpm-lock.yaml
+        - package-lock.json
+      prefix: npm
     paths:
       - node_modules/
   script:
-    - npm install -g pnpm
-    - pnpm install
-    - pnpm build
+    - npm install
+    - npm run build
     - cp -a dist/. public/
   artifacts:
     paths:
